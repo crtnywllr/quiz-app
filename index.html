@@ -2,14 +2,73 @@
 <html lang="en">
 
 <head>
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Courgette|Special+Elite|Arvo' rel='stylesheet' type='text/css'>
     <title>Where in the World Quiz</title>
 </head>
 
 <body>
 
+    <header>
+        <h1>Where in the World are You?</h1>
+    </header>
+
+    <section class="introduction">
+        <h2 class="top-rule">Can you figure out where in the world each photo was taken?</h2>
+        <h2>Study the photos and look for hints!</h2>
+        <button class="start">Start Jetsetting!</button>
+    </section>
+
+    <section class="questions">
+        <h2>If you were strolling along this street, where would you be?</h2>
+        <img src="images/Montmartre.jpg" />
+        <ul class="choices">
+            <li>
+                <input class="option" type="radio" value="0" name="option"> Paris, France</li>
+
+            <li>
+                <input class="option" type="radio" value="1" name="option"> Prague, Czech Republic</li>
+
+            <li>
+                <input class="option" type="radio" value="2" name="option"> Montreal, Canada</li>
+
+        </ul>
+
+        <div class="button-placer">
+            <button class="guess">Guess</button>
+        </div>
+
+        <h3 class="question-tracker" id="count">Question 1/10</h3>
+        <h3 class="score-tracker" id="score">Score 0/10</h3>
+    </section>
+
+
+    <section class="final">
+
+        <h2>You got 6/10 right.</h2>
+        <div class="answers">
+            <div class="answer-text">
+                <h3>Q: If you were strolling this street, where would you be?</h3>
+                <p>A: Paris, France</p>
+            </div>
+            <div class="answer-image">
+                <img src="images/Montmartre.jpg" />
+            </div>
+
+            <div class="answer-text">
+                <h3>Q: Which beautiful country has 10 times as many sheep as people?</h3>
+                <p>A: New Zealand</p>
+            </div>
+            <div class="answer-image">
+                <img src="images/NZ%20sheep.jpg" />
+            </div>
+
+        </div>
+    </section>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

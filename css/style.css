@@ -30,17 +30,177 @@ The CSS code gets to executed from top to bottom and left ro right
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
-body {}
+body {
+    font-size: 16px;
+    font-family: 'Special Elite', cursive;
+    background-image: url(../images/map.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    text-transform: uppercase;
+    border-radius: 4px;
+    color: white;
+    background-color: darkorange;
+}
 
 
 /* Header styles
 (all the styles inside the < header > or < nav > tags)
 */
 
+header {
+    height: 5rem;
+    width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 175%;
+}
+
 
 /* Content styles
 (all the styles inside the < sections > or < aside > tags)
 */
+
+
+/*Intro Slide*/
+
+.introduction {
+    height: 22.5rem;
+    width: 36rem;
+    background-color: bisque;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Courgette', cursive;
+    -webkit-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+}
+
+.introduction h2.top-rule {
+    padding-top: 8rem;
+    font-size: 1.15rem;
+}
+
+.introduction h2 + h2 {
+    margin-top: 1.25rem;
+}
+
+.introduction .start {
+    height: 3rem;
+    width: 11rem;
+    margin-top: 2rem;
+    font-family: 'Special Elite', cursive;
+}
+
+
+/*Questions Section*/
+
+.questions {
+    height: 35rem;
+    width: 45rem;
+    background-color: bisque;
+    margin: 1rem auto;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+}
+
+.questions h2 {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    font-family: 'Courgette', cursive;
+}
+
+.questions img {
+    width: 60%;
+}
+
+.questions .choices {
+    width: 40%;
+    margin: 1rem auto;
+    text-align: left;
+    font-size: 1.2rem;
+    font-family: 'Courgette', cursive;
+}
+
+.questions .guess {
+    height: 2rem;
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+.questions .question-tracker {
+    float: left;
+    color: #073610;
+    margin-left: 1rem;
+}
+
+.questions .score-tracker {
+    float: right;
+    color: #073610;
+    margin-right: 1rem;
+}
+
+
+/*Final Results*/
+
+.final {
+    height: 35rem;
+    width: 45rem;
+    background-color: bisque;
+    margin: 0 auto 5rem auto;
+    text-align: left;
+    overflow: scroll;
+    -webkit-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+}
+
+.final .answers {
+    margin-top: 1em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final h2 {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    color: #073610;
+}
+
+.final .answer-text,
+.final .answer-image {
+    float: left;
+    margin-top: 1rem;
+}
+
+.final .answer-text {
+    width: 80%;
+    font-family: 'Courgette', cursive;
+}
+
+.final .answer-text p {
+    padding-top: 1rem;
+}
+
+.final .answer-image {
+    width: 19%;
+}
+
+.final .answer-image img {
+    width: 100%;
+}
 
 
 /* Footer styles
