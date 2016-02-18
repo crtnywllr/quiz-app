@@ -66,7 +66,7 @@ var questions = [{
 }, {
     //Question 10
     question: "If you were mooring your sailboat in this harbor, what nation would you be in?",
-    imageUrl: 'images/victoria.jpg',
+    imageUrl: 'images/victoria-harbor.jpg',
     choices: ["England", 'Canada', 'Australia'],
     correct: 1,
     details: "Canada: Victoria Harbor is a popular entrance to Vancouver Island for those coming by boat or seaplane."
