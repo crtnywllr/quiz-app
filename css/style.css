@@ -124,6 +124,10 @@ header {
     width: 60%;
 }
 
+.questions img:hover {
+    width: 62%;
+}
+
 .questions .option {
     margin-right: 2rem;
 }
@@ -189,6 +193,11 @@ header {
 
 .final .answer-image img {
     width: 100%;
+}
+
+.final .answer-image img:hover {
+    width: 102%;
+    border: 1px solid black;
 }
 
 .final .answer-text,
