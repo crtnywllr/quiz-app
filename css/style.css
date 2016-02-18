@@ -50,6 +50,13 @@ button {
     background-color: darkorange;
 }
 
+.startQuiz {
+    height: 3rem;
+    width: 11rem;
+    margin: 2rem auto;
+    font-family: 'Special Elite', cursive;
+}
+
 
 /* Header styles
 (all the styles inside the < header > or < nav > tags)
@@ -92,13 +99,6 @@ header {
     margin-top: 1.25rem;
 }
 
-.introduction .start {
-    height: 3rem;
-    width: 11rem;
-    margin-top: 2rem;
-    font-family: 'Special Elite', cursive;
-}
-
 
 /*Questions Section*/
 
@@ -122,6 +122,10 @@ header {
 
 .questions img {
     width: 60%;
+}
+
+.questions .option {
+    margin-right: 2rem;
 }
 
 .questions .choices {
@@ -154,8 +158,8 @@ header {
 /*Final Results*/
 
 .final {
-    height: 35rem;
-    width: 45rem;
+    height: 45rem;
+    width: 55rem;
     background-color: bisque;
     margin: 0 auto 5rem auto;
     text-align: left;
@@ -165,6 +169,13 @@ header {
     box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
 }
 
+.final h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #073610;
+}
+
 .final .answers {
     margin-top: 1em;
     width: 80%;
@@ -172,11 +183,12 @@ header {
     margin-right: auto;
 }
 
-.final h2 {
-    text-align: center;
-    font-size: 1.25rem;
-    margin-top: 1rem;
-    color: #073610;
+.final .answer-image {
+    width: 19%;
+}
+
+.final .answer-image img {
+    width: 100%;
 }
 
 .final .answer-text,
@@ -188,19 +200,25 @@ header {
 .final .answer-text {
     width: 80%;
     font-family: 'Courgette', cursive;
+    font-size: 1.15rem;
+    border-top: 1px solid black;
 }
 
 .final .answer-text p {
     padding-top: 1rem;
 }
 
-.final .answer-image {
-    width: 19%;
+.final .resetGame {
+    clear: both;
+    text-align: center;
 }
 
-.final .answer-image img {
-    width: 100%;
-}
+
+/*.final .tryAgain {
+    height: 3rem;
+    width: 11rem;
+    margin: 2rem auto;
+}*/
 
 
 /* Footer styles
