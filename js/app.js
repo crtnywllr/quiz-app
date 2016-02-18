@@ -3,7 +3,7 @@
 var questions = [{
     //Question 1
     question: "If you were strolling along this street, where would you be?",
-    imageUrl: 'images/montmartre.jpg',
+    imageUrl: 'images/Montmartre.jpg',
     choices: ["Paris, France", 'Prague, Czech Republic', 'Montreal, Canada'],
     correct: 0,
     details: "Paris, France: This is the famous Montmartre neighborhood."
@@ -24,7 +24,7 @@ var questions = [{
 }, {
     //Question 4
     question: "This country is famous for this kind of arena.",
-    imageUrl: 'images/ronda.jpg',
+    imageUrl: 'images/Ronda.jpg',
     choices: ["United States", 'Spain', 'Brazil'],
     correct: 1,
     details: "Spain: This bullfighting arena is in Ronda."
@@ -59,7 +59,7 @@ var questions = [{
 }, {
     //Question 9
     question: "Bright colors and narrow alleys are common sights in this country.",
-    imageUrl: 'images/morocco.jpg',
+    imageUrl: 'images/Morocco.jpg',
     choices: ["Thailand", 'Croatia', 'Morocco'],
     correct: 2,
     details: "Morocco: Chefchaouen in particular is known for its blue buildings."
