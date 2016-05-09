@@ -1,6 +1,6 @@
 //Step 1 Declare Variables
 //Set Questions
-var questions = [{
+/*var questions = [{
     //Question 1
     question: "If you were strolling along this street, where would you be?",
     imageUrl: 'images/Montmartre.jpg',
@@ -70,16 +70,59 @@ var questions = [{
     choices: ["England", 'Canada', 'Australia'],
     correct: 1,
     details: "Canada: Victoria Harbor is a popular entrance to Vancouver Island for those coming by boat or seaplane."
-}];
+}];*/
 //Other Variables
 var questionNum = 0;
 var numCorrect = 0;
-var questionTotal = questions.length;
+var questionList;
+var userAnswers = [];
+//var questionTotal = questions.length;
 
 //Step 2 Declare Functions
 //Show questions
-//alert('I have activated the startQuiz function');
-function displayQuestions() {
+function getQuestions() {
+   $.ajax('/questions', {
+            method: 'GET',
+            dataType: 'json'
+        })
+        .done(function(questions) {
+            console.log(questions);
+            displayQuestions(questions);
+            questionList = questions;
+        });
+};
+
+function getAnswer(userGuess){
+    var stuff = {
+        'question': questionNum,
+        'answer': userGuess
+    }
+    $.ajax('/answers',{
+        type:'POST',
+        data:JSON.stringify(stuff),
+        dataType:'json',
+        contentType: 'application/json'
+        
+    })
+    .done(function(answer) {
+        var isCorrect  = answer.isCorrect;
+        if(isCorrect){
+            numCorrect++;
+        }
+        var details = answer.details;
+        var currentQuestion = questionList[questionNum];
+        currentQuestion.details = details; 
+        nextQuestion(questionList);
+    })
+    // get the response
+    // response will contain yaya , or nay
+    // response will contain answer for current question
+    
+}
+
+
+
+   function displayQuestions(questions) {
     $('#userChoices').empty();
     //Display question text
     $('#addQuestionText').text(questions[questionNum].question);
@@ -88,37 +131,30 @@ function displayQuestions() {
     //show choices
     var totalChoices = questions[questionNum].choices.length;
     for (var i = 0; i < totalChoices; i++) {
-        $('#userChoices').append("<li>" + "<input id='option' class='option' type='radio' name='option' value='" + i + "'>" + (questions[questionNum].choices[i] + "</li>"))
+        $('#userChoices').append("<li>" + "<input id='option' class='option' type='radio' name='option' value='" + questions[questionNum].choices[i] + "'>" + (questions[questionNum].choices[i] + "</li>"))
     } //update question tracker
     $('#question-counter').text("Question " + (questionNum + 1) + "/" + questions.length);
     //update score tracker
     $('#score').text('Score ' + (numCorrect) + "/" + questions.length);
 
-    var htmlOutput = "";
-    htmlOutput += '<div class="answers">';
-    htmlOutput += '<div class="answer-text"> <h3>' + (questionNum + 1) + ') ' + 'Q: ' + questions[questionNum].question + '</h3>';
-    htmlOutput += '<p>A: ' + questions[questionNum].details + '</p></div>';
-    htmlOutput += '<div class="answer-image"><img src ="' + questions[questionNum].imageUrl + '" class="image-class" /></div>';
-    htmlOutput += '</div>';
-    $('.answers-container').append(htmlOutput);
+  
 }
 
 //loading questions
-function nextQuestion() {
-    //update score
-    var userGuess = $("input[id='option']:checked").val();
-    var correctAnswer = questions[questionNum].correct;
-    //console.log("userGuess: " + userGuess);
-    //console.log("correctAnswer: " + correctAnswer);
-    if (userGuess == correctAnswer) {
-        numCorrect++;
-        console.log(numCorrect);
-        //alert('I have activated the function nextQuestion')
-    }
+function nextQuestion(questionList) {
+   
     //submit final question
-    if (questionNum + 1 == questions.length) {
+      var htmlOutput = "";
+      htmlOutput += '<div class="answers">';
+      htmlOutput += '<div class="answer-text"> <h3>' + (questionNum + 1) + ') ' + 'Q: ' + questionList[questionNum].question + '</h3>';
+      htmlOutput += '<p>Your Answer: ' + userAnswers[questionNum] + '</p>';
+      htmlOutput += '<p>Correct Answer: ' + questionList[questionNum].details + '</p></div>';
+      htmlOutput += '<div class="answer-image"><img src ="' + questionList[questionNum].imageUrl + '" class="image-class" /></div>';
+      htmlOutput += '</div>';
+      $('.answers-container').append(htmlOutput);
+    if (questionNum + 1 == questionList.length) {
         //update final score at top
-        $('#finalScore').text("You got " + numCorrect + '/' + questions.length + ' right!')
+        $('#finalScore').text("You got " + numCorrect + '/' + questionList.length + ' right!')
             //show final section only
         $('.questions').hide();
         $('.introduction').hide();
@@ -126,7 +162,7 @@ function nextQuestion() {
     } //load another question
     else {
         questionNum++;
-        displayQuestions();
+        displayQuestions(questionList); 
     }
 }
 
@@ -149,13 +185,16 @@ $(document).ready(function () {
         $('.introduction').hide();
         $('.final').hide();
         $('.questions').show();
-        displayQuestions();
+        getQuestions();
     })
 
     //hits guess button
-    $('#submit').on('click', function () {
+    $('#submit').on('click', function (e) {
+        e.preventDefault();
         if ($("#userChoices input[id='option']").is(':checked')) {
-            nextQuestion();
+            var userGuess = $("input[id='option']:checked").val()
+            userAnswers.push(userGuess);
+            getAnswer(userGuess);
 
         } else {
             alert("Please choose an option!");
@@ -167,4 +206,4 @@ $(document).ready(function () {
         tryAgain();
     })
 
-})
+});
