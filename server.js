@@ -1,61 +1,61 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+var express = require("express");
+var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
 
 var app = express();
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 var questions = [{
     //Question 1
     question: "If you were strolling along this street, where would you be?",
-    imageUrl: 'images/Montmartre.jpg',
-    choices: ["Paris, France", 'Prague, Czech Republic', 'Montreal, Canada']
+    imageUrl: "images/Montmartre.jpg",
+    choices: ["Paris, France", "Prague, Czech Republic", "Montreal, Canada"]
 }, {
     //Question 2
     question: "Which beautiful country has 10 times more sheep than people?",
-    imageUrl: 'images/nz-sheep.jpg',
-    choices: ["Ireland", 'South Africa', 'New Zealand']
+    imageUrl: "images/nz-sheep.jpg",
+    choices: ["Ireland", "South Africa", "New Zealand"]
 }, {
     //Question 3
     question: "This popular restaurant street can be found in...",
-    imageUrl: 'images/guijie.jpg',
-    choices: ["Manila, Phillipines", 'Beijing, China', 'Kuala Lumpur, Malaysia']
+    imageUrl: "images/guijie.jpg",
+    choices: ["Manila, Phillipines", "Beijing, China", "Kuala Lumpur, Malaysia"]
 }, {
     //Question 4
     question: "This country is famous for this kind of arena.",
-    imageUrl: 'images/Ronda.jpg',
-    choices: ["United States", 'Spain', 'Brazil']
+    imageUrl: "images/Ronda.jpg",
+    choices: ["United States", "Spain", "Brazil"]
 }, {
     //Question 5
     question: "Where can you find this majestic scene?",
-    imageUrl: 'images/us-bison.jpg',
-    choices: ["United States", 'Poland', 'Australia']
+    imageUrl: "images/us-bison.jpg",
+    choices: ["United States", "Poland", "Australia"]
 }, {
     //Question 6
     question: "Where is this iconic building located?",
-    imageUrl: 'images/red-square.jpg',
-    choices: ["Istanbul, Turkey", 'Berlin, Germany', 'Moscow, Russia']
+    imageUrl: "images/red-square.jpg",
+    choices: ["Istanbul, Turkey", "Berlin, Germany", "Moscow, Russia"]
 }, {
     //Question 7
     question: "Which country offers this view?",
-    imageUrl: 'images/patagonia.jpg',
-    choices: ["Chile", 'New Zealand', 'Canada']
+    imageUrl: "images/patagonia.jpg",
+    choices: ["Chile", "New Zealand", "Canada"]
 }, {
     //Question 8
     question: "This very old and very famous site is found in...",
-    imageUrl: 'images/angkor-wat.jpg',
-    choices: ["India", 'Cambodia', 'China']
+    imageUrl: "images/angkor-wat.jpg",
+    choices: ["India", "Cambodia", "China"]
 }, {
     //Question 9
     question: "Bright colors and narrow alleys are common sights in this country.",
-    imageUrl: 'images/Morocco.jpg',
-    choices: ["Thailand", 'Croatia', 'Morocco']
+    imageUrl: "images/Morocco.jpg",
+    choices: ["Thailand", "Croatia", "Morocco"]
 }, {
     //Question 10
     question: "If you were mooring your sailboat in this harbor, what nation would you be in?",
-    imageUrl: 'images/victoria-harbor.jpg',
-    choices: ["England", 'Canada', 'Australia']
-   }];
+    imageUrl: "images/victoria-harbor.jpg",
+    choices: ["England", "Canada", "Australia"]
+}];
 
 var answers = [{
     question:1,
@@ -99,19 +99,17 @@ var answers = [{
     details: "Canada: Victoria Harbor is a popular entrance to Vancouver Island for those coming by boat or seaplane."
 }];
 
-app.get('/questions', function(req, res) {
+app.get("/questions", function(req, res) {
     res.json(questions);
 });
 
-app.post('/answers', jsonParser, function(req, res) {
+app.post("/answers", jsonParser, function(req, res) {
     var thisAnswer = answers.filter(function(answer){
         return answer.question == (req.body.question + 1);
     });
-    console.log("correct answer " + thisAnswer[0].correct)
-    console.log("req answer " + req.body.answer)
     var isCorrect = false;
     if( thisAnswer[0].correct == req.body.answer){
-        var isCorrect = true;
+        isCorrect = true;
     }
     var response = {
         "isCorrect":isCorrect,
@@ -120,8 +118,6 @@ app.post('/answers', jsonParser, function(req, res) {
     }
     res.json(response);
 });
-
-
 
 app.listen(process.env.PORT || 8080);
 

@@ -7,14 +7,14 @@
   "author": "Courtney Waller",
   "dependencies": {
     "async": "~0.2.8",
-    "body-parser": "^1.15.0",
-    "express": "^3.2.6",
-    "jquery": "^2.2.3"
+    "body-parser": "1.15.0",
+    "express": "3.2.6",
+    "jquery": "2.2.3"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "mocha": "^2.4.5",
-    "nodemon": "^1.9.1"
+    "chai": "3.5.0",
+    "chai-http": "^.0.1",
+    "mocha": "2.4.5",
+    "nodemon": "1.9.1"
   }
 }

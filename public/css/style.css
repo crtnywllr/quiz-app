@@ -1,19 +1,10 @@
-/*
-The CSS code gets to executed from top to bottom and left ro right
-*/
-
-
-/* CSS reset
-(all the browsers will see the website in the same by setting every tag to 0 (the website will look the same on all browsers))
-*/
+/* CSS reset */
 
 * {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
-    box-sizing: border-box;
+    font-size: 100%;box-sizing: border-box;
     /*reset Chrome user agent styles*/
     -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
@@ -25,14 +16,11 @@ The CSS code gets to executed from top to bottom and left ro right
     -webkit-padding-end: 0px;
 }
 
-
-/* General styles
-(the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
-*/
+/* General styles */
 
 body {
     font-size: 16px;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Special Elite', serif;
     background-image: url(../images/camera-min.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -53,13 +41,10 @@ button {
     height: 3rem;
     width: 11rem;
     margin: 2rem auto;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Special Elite', serif;
 }
 
-
-/* Header styles
-(all the styles inside the < header > or < nav > tags)
-*/
+/* Header styles*/
 
 header {
     height: 5rem;
@@ -69,12 +54,6 @@ header {
     font-size: 175%;
 }
 
-
-/* Content styles
-(all the styles inside the < sections > or < aside > tags)
-*/
-
-
 /*Intro Slide*/
 
 .introduction {
@@ -83,9 +62,7 @@ header {
     background-color: bisque;
     margin: 0 auto;
     text-align: center;
-    font-family: 'Courgette', cursive;
-    -webkit-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
+    font-family: 'Courgette', serif;
     box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.75);
 }
 
@@ -223,19 +200,3 @@ header {
     text-align: center;
 }
 
-
-/*.final .tryAgain {
-    height: 3rem;
-    width: 11rem;
-    margin: 2rem auto;
-}*/
-
-
-/* Footer styles
-(all the styles inside the < footer > tag)
-*/
-
-
-/* Responsive styles
-(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
-*/
